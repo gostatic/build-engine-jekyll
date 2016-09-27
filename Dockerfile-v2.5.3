@@ -5,8 +5,9 @@ WORKDIR /app
 RUN apt-get update -qq \
  && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
  && apt-get install -y nodejs \
- && gem install bundler:1.13.0 jekyll:2.5.3 \
+ && gem install bundler:1.13.0 \
  && rm -rf /var/lib/apt/lists/*
+RUN gem install jekyll:2.5.3
 ADD build.sh /build.sh
 
 CMD /build.sh
